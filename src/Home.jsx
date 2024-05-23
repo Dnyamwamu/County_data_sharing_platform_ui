@@ -14,8 +14,27 @@ import Header from "./components/Header";
 import { TypeAnimation } from "react-type-animation";
 import Footer from "./components/Footer";
 import { Link } from "react-router-dom";
+import SearchModal from "./components/SearchModal"; // Import the SearchModal component
 
 const Home = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleInputChange = (e) => {
+    setShowModal(true);
+    const query = e.target.value;
+    // Replace the following with your actual search logic
+    setSearchResults([
+      `Result for "${query}" 1`,
+      `Result for "${query}" 2`,
+      `Result for "${query}" 3`,
+    ]);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="min-h-screen bg-customGreen text-white font-sans">
       <Header />
@@ -30,12 +49,13 @@ const Home = () => {
               <TypeAnimation
                 sequence={[
                   `Revolutionary approach to data exchange in agriculture by
-    fostering collaboration between organisations and harnessing the
-    power of collective data.`,
+                  fostering collaboration between organisations and harnessing the
+                  power of collective data.`,
                 ]}
                 wrapper="span"
                 cursor={true}
                 repeat={true}
+                speed={90}
               />
             </p>
 
@@ -55,6 +75,7 @@ const Home = () => {
                 type="text"
                 placeholder="Search Datasets"
                 className="border border-gray-300 p-2 rounded-l-2xl w-full"
+                onChange={handleInputChange} // Handle input change to open modal
               />
               <button className="bg-customGreen p-2 rounded-r-lg text-white">
                 <svg
@@ -102,11 +123,8 @@ const Home = () => {
               { name: "Stakeholders", icon: faUsersCog },
               { name: "Interested Farmers", icon: faUserCheck },
             ].map((category, index) => (
-              <Link to="/data">
-                <div
-                  key={index}
-                  className="bg-white text-center p-4 rounded-lg shadow-md h-36 hover:bg-yellow-100 flex flex-col justify-center items-center"
-                >
+              <Link to="/data" key={index}>
+                <div className="bg-white text-center p-4 rounded-lg shadow-md h-36 hover:bg-yellow-100 flex flex-col justify-center items-center">
                   <FontAwesomeIcon
                     icon={category.icon}
                     className="text-4xl text-customGreen mb-2"
@@ -120,6 +138,14 @@ const Home = () => {
       </section>
 
       <Footer />
+
+      {/* Search Modal */}
+      <SearchModal
+        showModal={showModal}
+        handleClose={handleCloseModal}
+        searchResults={searchResults}
+        handleSearchChange={handleInputChange}
+      />
     </div>
   );
 };
