@@ -74,7 +74,7 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Search Datasets"
-                className="border border-gray-300 p-2 rounded-l-2xl w-full"
+                className="border border-gray-300 p-2 rounded-l-2xl w-full blinking-cursor"
                 onChange={handleInputChange} // Handle input change to open modal
               />
               <button className="bg-customGreen p-2 rounded-r-lg text-white">
