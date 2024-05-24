@@ -16,6 +16,7 @@ import {
 import Breadcrumbs from "./components/Breadcrumbs";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import DashboardTabs from "./components/DashboardTabs";
 
 const categories = [
   { name: "Farmer Profile", icon: faUser },
@@ -71,6 +72,7 @@ const Dashboard = () => {
       <main className="container mx-auto px-4 lg:px-20 py-4">
         <Breadcrumbs />
         <p className="font-bold pb-4 text-4xl ml-2">DASBOARD</p>
+        <DashboardTabs />
       </main>
     </div>
   );

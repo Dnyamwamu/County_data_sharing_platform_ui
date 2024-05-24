@@ -22,7 +22,10 @@ const categories = [
   { name: "County", icon: faMapMarkedAlt },
   { name: "Subcounty", icon: faMap },
   { name: "Ward", icon: faMapMarkerAlt },
-  { name: "Category", icon: faCogs },
+  { name: "Categories", icon: faCogs },
+  { name: "Organization Types", icon: faCogs },
+  { name: "Node", icon: faCogs },
+  { name: "Value Chain", icon: faCogs },
 ];
 
 const dropdownOptions = [
@@ -30,6 +33,9 @@ const dropdownOptions = [
   ["Katumani", "Wote", "Syokimau"],
   ["Ward X", "Ward Y", "Ward Z"],
   ["Farmer Profile", "Cooperatives", "Agrodealers", "Agripreneurs"],
+  ["Cooperatives", "Research Centers", "SACCO"],
+  ["Farmer Profile", "Cooperatives", "Agrodealers", "Agripreneurs"],
+  ["Maize", "Coffee"],
 ];
 
 const dummyResults = [
