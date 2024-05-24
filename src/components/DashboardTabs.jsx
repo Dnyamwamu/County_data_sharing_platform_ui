@@ -44,7 +44,7 @@ const DashboardTabs = () => {
         )}
         {activeTab === "Cooperatives" && (
           <iframe
-            title="Livestock Dashboard"
+            title="Cooperatives Dashboard"
             width="100%"
             height="600"
             src="https://app.powerbi.com/view?r=eyJrIjoiNzAxNzEzYjYtYTc0NS00M2MzLWFiN2QtYWM0NjFlNTQ3ZTg0IiwidCI6IjMwY2JiODY1LTg2MDUtNGQ4NS1iZTA1LWU1ZjM0MjcyMTM5YyJ9"
