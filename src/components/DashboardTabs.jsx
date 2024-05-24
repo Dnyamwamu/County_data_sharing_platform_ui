@@ -13,7 +13,7 @@ const DashboardTabs = () => {
         <button
           className={`px-4 py-2 mr-2 font-semibold rounded ${
             activeTab === "crops"
-              ? "bg-blue-500 text-white"
+              ? "bg-yellow-500 text-white"
               : "bg-gray-200 text-gray-700"
           }`}
           onClick={() => handleTabClick("crops")}
@@ -23,12 +23,22 @@ const DashboardTabs = () => {
         <button
           className={`px-4 py-2 font-semibold rounded ${
             activeTab === "livestock"
-              ? "bg-blue-500 text-white"
+              ? "bg-yellow-500 text-white"
               : "bg-gray-200 text-gray-700"
           }`}
           onClick={() => handleTabClick("livestock")}
         >
           Livestock Dashboard
+        </button>
+        <button
+          className={`px-4 py-2 font-semibold rounded ml-2 ${
+            activeTab === "cooperatives"
+              ? "bg-yellow-500 text-white"
+              : "bg-gray-200 text-gray-700"
+          }`}
+          onClick={() => handleTabClick("cooperatives")}
+        >
+          Cooperatives Dashboard
         </button>
       </div>
       <div>
@@ -42,9 +52,9 @@ const DashboardTabs = () => {
             allowFullScreen
           ></iframe>
         )}
-        {activeTab === "Cooperatives" && (
+        {activeTab === "Livestock" && (
           <iframe
-            title="Cooperatives Dashboard"
+            title="Livestock Dashboard"
             width="100%"
             height="600"
             src="https://app.powerbi.com/view?r=eyJrIjoiNzAxNzEzYjYtYTc0NS00M2MzLWFiN2QtYWM0NjFlNTQ3ZTg0IiwidCI6IjMwY2JiODY1LTg2MDUtNGQ4NS1iZTA1LWU1ZjM0MjcyMTM5YyJ9"
@@ -52,9 +62,9 @@ const DashboardTabs = () => {
             allowFullScreen
           ></iframe>
         )}
-        {activeTab === "livestock" && (
+        {activeTab === "Cooperatives" && (
           <iframe
-            title="Livestock Dashboard"
+            title="Cooperatives Dashboard"
             width="100%"
             height="600"
             src="https://app.powerbi.com/view?r=eyJrIjoiMzgzNzA5YzAtMDYyYy00YmY1LTgwNWEtMjJiNTVmMmVmZDlkIiwidCI6IjMwY2JiODY1LTg2MDUtNGQ4NS1iZTA1LWU1ZjM0MjcyMTM5YyJ9"
