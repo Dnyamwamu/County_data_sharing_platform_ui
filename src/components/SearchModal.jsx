@@ -25,8 +25,10 @@ const SearchModal = ({
         >
           <FontAwesomeIcon icon={faTimes} className="text-2xl" />
         </button>
-        <h2 className="text-2xl font-bold mb-4">Search Datasets</h2>
-        <p className="mb-4">
+        <h2 className="text-2xl font-bold mb-4 text-customGreen">
+          Search Datasets
+        </h2>
+        <p className="mb-4 text-slate-500">
           Search for datasets related to agriculture. You can filter the search
           results by categories such as farmer profiles, cooperatives,
           agrodealers, and more.
@@ -44,7 +46,9 @@ const SearchModal = ({
           />
         </div>
         <div className="mb-4">
-          <span className="block mb-2 font-semibold">Filter by Category:</span>
+          <span className="block mb-2 font-semibold text-customGreen">
+            Filter by Category:
+          </span>
           <div className="flex flex-wrap gap-4">
             {[
               "Farmer Profiles",
@@ -66,7 +70,10 @@ const SearchModal = ({
         <hr className="mb-4" />
         <div className="max-h-64 overflow-y-auto mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {searchResults.map((result, index) => (
-            <div key={index} className="bg-gray-100 p-4 rounded-lg shadow-md">
+            <div
+              key={index}
+              className="bg-gray-100 hover:bg-yellow-100 p-4 rounded-lg shadow-md"
+            >
               <h3 className="font-bold mb-2">Result {index + 1}</h3>
               <p>{result}</p>
             </div>
