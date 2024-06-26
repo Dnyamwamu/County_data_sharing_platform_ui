@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUserCircle,
@@ -14,16 +14,16 @@ import Header from "./components/Header";
 import { TypeAnimation } from "react-type-animation";
 import Footer from "./components/Footer";
 import { Link } from "react-router-dom";
-import SearchModal from "./components/SearchModal"; // Import the SearchModal component
+import SearchModal from "./components/SearchModal";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  const searchInputRef = useRef(null); // Create a ref for the input field
 
   const handleInputChange = (e) => {
     setShowModal(true);
     const query = e.target.value;
-    // Replace the following with your actual search logic
     setSearchResults([
       `Result for "${query}" 1`,
       `Result for "${query}" 2`,
@@ -75,7 +75,7 @@ const Home = () => {
                 type="text"
                 placeholder="Search Datasets"
                 className="border border-gray-300 p-2 rounded-l-2xl w-full blinking-cursor"
-                onChange={handleInputChange} // Handle input change to open modal
+                onChange={handleInputChange}
               />
               <button className="bg-customGreen p-2 rounded-r-lg text-white">
                 <svg
@@ -139,12 +139,12 @@ const Home = () => {
 
       <Footer />
 
-      {/* Search Modal */}
       <SearchModal
         showModal={showModal}
         handleClose={handleCloseModal}
         searchResults={searchResults}
         handleSearchChange={handleInputChange}
+        searchInputRef={searchInputRef} // Pass the ref to the SearchModal
       />
     </div>
   );

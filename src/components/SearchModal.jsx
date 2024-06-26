@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -7,7 +7,14 @@ const SearchModal = ({
   handleClose,
   searchResults,
   handleSearchChange,
+  searchInputRef, // Accept searchInputRef as a prop
 }) => {
+  useEffect(() => {
+    if (showModal && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [showModal, searchInputRef]);
+
   return (
     <div
       className={`fixed inset-0 z-50 ${
@@ -35,6 +42,7 @@ const SearchModal = ({
         </p>
         <div className="relative mb-4">
           <input
+            ref={searchInputRef} // Attach the ref to the input field
             type="text"
             placeholder="Search Datasets"
             className="border border-gray-300 p-2 pl-10 rounded-full w-full blinking-cursor"
